@@ -38,7 +38,7 @@ function Contact() {
         <div className="contact-card">
           <FaMapMarkerAlt className="contact-icon" />
           <h3>Address</h3>
-          <p>Gujrat, Pakistan</p>
+          <p>Lahore, Pakistan</p>
         </div>
       </div>
 

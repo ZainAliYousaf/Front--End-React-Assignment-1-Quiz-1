@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import "./services.css";
+import "../styles/services.css";
+
 import sunny from "../assets/sunny.jpg";
 import rain from "../assets/rainy.jpg";
 import clouds from "../assets/cloudy.jpg";
@@ -8,87 +9,193 @@ import wind from "../assets/wind.jpg";
 
 function Services() {
   useEffect(() => {
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    // Enhanced Intersection Observer with stagger effect
     const elements = document.querySelectorAll(".fade-in-up");
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, index * 100); // Stagger animation
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
     elements.forEach((el) => observer.observe(el));
+
+    // Parallax effect for header
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      const header = document.querySelector(".services-header");
+      if (header) {
+        header.style.transform = `translateY(${scrolled * 0.4}px)`;
+        header.style.opacity = `${1 - scrolled * 0.002}`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.documentElement.style.scrollBehavior = "auto";
+    };
   }, []);
 
   return (
     <div className="services-page">
-      {/* ===== Page Header ===== */}
+      {/* ===== Page Header with Glassmorphism ===== */}
       <section className="services-header fade-in-up">
-        <h1>Our Weather Services</h1>
-        <p>
-          Explore a range of weather solutions designed to keep you informed and prepared
-          for every condition — anywhere, anytime.
-        </p>
+        <div className="header-glass-container">
+          <h1>Our Weather Services</h1>
+          <p>
+            Explore a range of weather solutions designed to keep you informed
+            and prepared for every condition — anywhere, anytime.
+          </p>
+        </div>
+        <div className="floating-shapes">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
       </section>
 
-      {/* ===== Services Cards ===== */}
-      <section className="service-section">
-        <div className="service-cards">
-          <div className="service-card fade-in-up">
-            <img src={sunny} alt="Sunny Weather" />
-            <h3>Sunny Conditions</h3>
-            <p>
-              Get real-time UV index, temperature, and heatwave alerts for bright, sunny days.
-            </p>
+      {/* ===== Service Cards with Enhanced Animations ===== */}
+      <section className="services-section">
+        <div className="services-cards">
+          <div className="services-card fade-in-up">
+            <div className="card-image-wrapper">
+              <img src={sunny} alt="Sunny Weather" />
+              <div className="card-overlay"></div>
+            </div>
+            <div className="card-content">
+              <div className="card-icon">
+                <i className="fa-solid fa-sun"></i>
+              </div>
+              <h3>Sunny Conditions</h3>
+              <p>UV index, heat alerts & daylight temperature insights.</p>
+            </div>
           </div>
 
-          <div className="service-card fade-in-up">
-            <img src={rain} alt="Rainy Weather" />
-            <h3>Rain Forecast</h3>
-            <p>
-              Stay prepared with rainfall predictions, humidity data, and real-time precipitation updates.
-            </p>
+          <div className="services-card fade-in-up">
+            <div className="card-image-wrapper">
+              <img src={rain} alt="Rainy Weather" />
+              <div className="card-overlay"></div>
+            </div>
+            <div className="card-content">
+              <div className="card-icon">
+                <i className="fa-solid fa-cloud-rain"></i>
+              </div>
+              <h3>Rain Forecast</h3>
+              <p>Rain prediction, humidity tracking & storm warnings.</p>
+            </div>
           </div>
 
-          <div className="service-card fade-in-up">
-            <img src={clouds} alt="Cloudy Weather" />
-            <h3>Cloud Coverage</h3>
-            <p>
-              Monitor sky conditions, visibility, and cloud density for overcast and partly cloudy days.
-            </p>
+          <div className="services-card fade-in-up">
+            <div className="card-image-wrapper">
+              <img src={clouds} alt="Cloudy Weather" />
+              <div className="card-overlay"></div>
+            </div>
+            <div className="card-content">
+              <div className="card-icon">
+                <i className="fa-solid fa-cloud"></i>
+              </div>
+              <h3>Cloud Coverage</h3>
+              <p>Sky visibility & cloud movement patterns.</p>
+            </div>
           </div>
 
-          <div className="service-card fade-in-up">
-            <img src={storm} alt="Storm Alerts" />
-            <h3>Storm Alerts</h3>
-            <p>
-              Receive instant notifications for thunderstorms, heavy winds, and extreme weather conditions.
-            </p>
+          <div className="services-card fade-in-up">
+            <div className="card-image-wrapper">
+              <img src={storm} alt="Storm Alerts" />
+              <div className="card-overlay"></div>
+            </div>
+            <div className="card-content">
+              <div className="card-icon">
+                <i className="fa-solid fa-cloud-bolt"></i>
+              </div>
+              <h3>Storm Alerts</h3>
+              <p>Real-time thunderstorm and severe weather alerts.</p>
+            </div>
           </div>
 
-          <div className="service-card fade-in-up">
-            <img src={wind} alt="Wind Updates" />
-            <h3>Wind Patterns</h3>
-            <p>
-              Track wind direction, speed, and gusts to plan your outdoor and travel activities better.
-            </p>
+          <div className="services-card fade-in-up">
+            <div className="card-image-wrapper">
+              <img src={wind} alt="Wind Updates" />
+              <div className="card-overlay"></div>
+            </div>
+            <div className="card-content">
+              <div className="card-icon">
+                <i className="fa-solid fa-wind"></i>
+              </div>
+              <h3>Wind Patterns</h3>
+              <p>Track wind speed and direction for outdoor planning.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Call To Action Section ===== */}
+      {/* ===== Info Section with Glassmorphism ===== */}
+      <section className="info-section fade-in-up">
+        <h2>Why Our WeatherApp?</h2>
+        <p className="info-desc">
+          Real-time, fast & precise weather data powered by modern forecasting
+          engines.
+        </p>
+
+        <div className="info-cards">
+          <div className="info-card fade-in-up">
+            <div className="info-icon-wrapper">
+              <i className="fa-solid fa-location-crosshairs info-icon"></i>
+            </div>
+            <h3>Live Location Forecast</h3>
+            <p>Get accurate weather updates based on your exact location</p>
+          </div>
+
+          <div className="info-card fade-in-up">
+            <div className="info-icon-wrapper">
+              <i className="fa-solid fa-cloud-sun info-icon"></i>
+            </div>
+            <h3>7-Day Forecast</h3>
+            <p>Plan ahead with detailed weekly weather predictions</p>
+          </div>
+
+          <div className="info-card fade-in-up">
+            <div className="info-icon-wrapper">
+              <i className="fa-solid fa-bell info-icon"></i>
+            </div>
+            <h3>Severe Alerts</h3>
+            <p>Stay safe with instant notifications for extreme weather</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CTA Section with Advanced Glassmorphism ===== */}
       <section className="cta-section fade-in-up">
-        <div className="cta-content">
-          <h2>Get Live Weather Updates Instantly</h2>
-          <p>
-            Our API integration (coming soon!) will bring you real-time weather data from
-            cities around the world. Stay tuned and be the first to experience it.
-          </p>
-          <button className="cta-btn">Coming Soon</button>
+        <div className="cta-glass-container">
+          <div className="cta-content">
+            <h2>Live Weather API Integration Coming Soon</h2>
+            <p>
+              Experience the next generation of weather forecasting technology
+            </p>
+            <button className="cta-btn">
+              <span>Stay Tuned</span>
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div className="cta-particles">
+          <div className="particle particle-1"></div>
+          <div className="particle particle-2"></div>
+          <div className="particle particle-3"></div>
+          <div className="particle particle-4"></div>
         </div>
       </section>
     </div>

@@ -24,9 +24,7 @@ function Contact() {
         <div className="contact-card">
           <FaPhoneAlt className="contact-icon" />
           <h3>Phone</h3>
-          <p>+92 340 4811692</p>
-          <p>+92 3051633767</p>
-          <p>+92 347 8967506</p>
+          <p>+92 300 1234567</p>
         </div>
 
         <div className="contact-card">
@@ -38,7 +36,7 @@ function Contact() {
         <div className="contact-card">
           <FaMapMarkerAlt className="contact-icon" />
           <h3>Address</h3>
-          <p>Gujrat, Pakistan</p>
+          <p>Lahore, Pakistan</p>
         </div>
       </div>
 

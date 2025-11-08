@@ -223,7 +223,7 @@ function About() {
               </div>
               <div className="team-info">
                 <h3 className="team-name">Zain Ali Yousaf</h3>
-                <p className="team-role">Backend Developer + FULL STACK</p>
+                <p className="team-role">Backend Developer + Full stack</p>
                 <div className="team-skills">
                   <span className="skill-tag">Node.js</span>
                   <span className="skill-tag">APIs</span>

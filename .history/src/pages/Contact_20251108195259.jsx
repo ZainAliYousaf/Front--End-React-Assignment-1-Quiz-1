@@ -24,21 +24,21 @@ function Contact() {
         <div className="contact-card">
           <FaPhoneAlt className="contact-icon" />
           <h3>Phone</h3>
-          <p>+92 340 4811692</p>
+          <p>+92 3404811692</p>
           <p>+92 3051633767</p>
-          <p>+92 347 8967506</p>
+          <p>+92 3478967506</p>  
         </div>
 
         <div className="contact-card">
           <FaEnvelope className="contact-icon" />
           <h3>Email</h3>
-          <p>NewGen@weatherapp.com</p>
+          <p>support@smartweatherapp.com</p>
         </div>
 
         <div className="contact-card">
           <FaMapMarkerAlt className="contact-icon" />
           <h3>Address</h3>
-          <p>Gujrat, Pakistan</p>
+          <p>Lahore, Pakistan</p>
         </div>
       </div>
 

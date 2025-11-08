@@ -223,7 +223,7 @@ function About() {
               </div>
               <div className="team-info">
                 <h3 className="team-name">Zain Ali Yousaf</h3>
-                <p className="team-role">Backend Developer + FULL STACK</p>
+                <p className="team-role">Backend Developer</p>
                 <div className="team-skills">
                   <span className="skill-tag">Node.js</span>
                   <span className="skill-tag">APIs</span>
@@ -253,11 +253,11 @@ function About() {
               </div>
               <div className="team-info">
                 <h3 className="team-name">Uzair Ali</h3>
-                <p className="team-role"></p>
+                <p className="team-role">Project Lead</p>
                 <div className="team-skills">
                   <span className="skill-tag">Leadership</span>
                   <span className="skill-tag">Strategy</span>
-                  <span className="skill-tag">Guidance</span>
+                  <span className="skill-tag">Full Stack</span>
                 </div>
               </div>
             </div>

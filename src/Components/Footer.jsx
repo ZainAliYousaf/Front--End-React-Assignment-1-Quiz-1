@@ -3,7 +3,7 @@ import "../style.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p>© {new Date().getFullYear()} WeatherApp | Designed by Zain Ali Yousaf</p>
+      <p>© {new Date().getFullYear()} WeatherApp | A Group Project</p>
     </footer>
   );
 }
